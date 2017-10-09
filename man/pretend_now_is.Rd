@@ -38,8 +38,9 @@ These are translated into \code{Sys.time() + as.difftime(number, units = unit)}
 }
 \examples{
 pretend_now_is(Sys.time() + as.difftime(1, units = "days"), {
- cat("It's UNIX time ", Sys.time(), ", tomorrow!\\n", sep = "")
-})
+  cat("It's UNIX time ", format(Sys.time(), "\%Y-\%m-\%d HH:MM:SS \%Z"), 
+      " tomorrow!\\n", sep = "")
+ })
 
 now <- Sys.time()
 pretend_now_is("10 minutes from now", {
@@ -48,4 +49,3 @@ pretend_now_is("10 minutes from now", {
    10))
 })
 }
-

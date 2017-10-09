@@ -20,7 +20,8 @@ describe("parse_time", {
   })
 
   test_that("it can parse date strings", {
-    expect_equal(as.Date(parse_time("1 day from now")), as.Date(strdate::strdate("1 day from now")))
+    expect_equal(as.Date(parse_time("1 day from now")), 
+                 as.Date(strdate("1 day from now")))
   })
 })
 

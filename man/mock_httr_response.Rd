@@ -22,4 +22,3 @@ Mocks an httr response
 \examples{
 mock_httr_response(200L, list(data = "it works!"), "json")
 }
-

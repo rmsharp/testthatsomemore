@@ -25,4 +25,3 @@ assert(1 + 1) # This will throw no error.
 # The above will produce an error. In unit tests, it will be clear this
 # means "We expect no error to occur."
 }
-

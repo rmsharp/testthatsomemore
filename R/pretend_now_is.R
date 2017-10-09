@@ -26,8 +26,9 @@
 #' @export
 #' @examples
 #' pretend_now_is(Sys.time() + as.difftime(1, units = "days"), {
-#'  cat("It's UNIX time ", Sys.time(), ", tomorrow!\n", sep = "")
-#' })
+#'   cat("It's UNIX time ", format(Sys.time(), "%Y-%m-%d HH:MM:SS %Z"), 
+#'       " tomorrow!\n", sep = "")
+#'  })
 #'
 #' now <- Sys.time()
 #' pretend_now_is("10 minutes from now", {
@@ -45,23 +46,41 @@ pretend_now_is <- function(time, expr) {
       expr
   })))}))
 }
-
+#' Generic parse_time
+#' @param time can be any of \code{POSIXct}, \code{Date}, or \code{character}.
+#' @export
 parse_time <- function(time) {
   UseMethod("parse_time")
 }
 
+#' S3 method for parse_time with \code{POSIXct} argument.
+#' 
+#' @param time is class \code{POSIXct}
+#' @export
 parse_time.POSIXct <- function(time) {
   time
 }
 
+#' S3 method for parse_time with \code{Date} argument.
+#' 
+#' @param time is class \code{Date}
+#' @export 
 parse_time.Date <- function(time) {
   as.POSIXct(time)
 }
 
+#' S3 method for parse_time with \code{character} argument.
+#' 
+#' @param time is class \code{character}
+#' @export 
 parse_time.character <- function(time) {
-  strdate::strdate(time)
+  strdate(time)
 }
 
+#' Default parse_time; throws error
+#' @param time can be any of \code{POSIXct}, \code{Date}, or \code{character}.
+#' @rdname parse_time
+#' @export 
 parse_time.default <- function(time) {
   stop("Time provided to ", crayon::red("testthatsomemore::pretend_now_is"),
        " is in an invalid format. Must be a ", sQuote("POSIXct"), ", ",

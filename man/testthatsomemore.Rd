@@ -24,4 +24,3 @@ with the return value being a test directory containing these structured files.
 Additionally, \code{create_test_files} has created an \code{on.exit} trigger
 in the calling environment that will unlink everything in this test directory.
 }
-

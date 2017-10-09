@@ -16,12 +16,13 @@ Depends:
 Imports:
     testthat,
     crayon,
-    strdate,
     jsonlite,
-    httr
-Remotes: peterhurford/strdate
+    httr,
+    methods,
+    stats,
+    utils
 License: MIT + file LICENSE
 LazyData: true
 URL: http://github.com/robertzk/testthatsomemore
 BugReports: https://github.com/robertzk/testthatsomemore/issues
-RoxygenNote: 5.0.1
+RoxygenNote: 6.0.1

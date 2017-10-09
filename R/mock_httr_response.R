@@ -4,6 +4,7 @@
 #' @param content list. 
 #' @param type character. json or text
 #' @return a response object.
+#' @importFrom utils getFromNamespace
 #' @export
 #' @examples
 #' mock_httr_response(200L, list(data = "it works!"), "json")
@@ -19,7 +20,7 @@ mock_httr_response <- function(status_code, content, type) {
     content_type <- "text"
   } 
 
-  getFromNamespace("response", "httr")(
+  utils::getFromNamespace("response", "httr")(
     status_code = status_code,
     content     = charToRaw(content),
     headers     = list(`Content-Type` = content_type) 

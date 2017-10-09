@@ -37,4 +37,3 @@ stubbed_key <- 'paste0'
 stub(fn, stubbed_key, character.only = TRUE) <- paste
 # We need to use character.only = TRUE for the above meta-programming to work
 }
-

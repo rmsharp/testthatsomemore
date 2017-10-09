@@ -12,4 +12,3 @@ is.directory(path)
 \description{
 Check whether a path is a directory.
 }
-

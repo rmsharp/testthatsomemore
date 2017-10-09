@@ -24,4 +24,3 @@ some expression (a block of code). Otherwise, dangerous things could happen!
 \examples{
 package_stub("methods", "new", function(...) 'test', stopifnot(new('example') == 'test')) 
 }
-

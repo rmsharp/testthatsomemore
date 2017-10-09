@@ -39,6 +39,9 @@
 #' @return the directory in which this file structure exists, if \code{expr}
 #'    is not missing. If \code{expr} was provided, its return value will be
 #'    returned instead.
+#' 
+#' @importFrom methods is
+#' 
 #' @export
 #' @examples
 #' \dontrun{
@@ -77,7 +80,7 @@ create_file_structure <- function(files, expr, dir) {
     if (name_is_blank(name)) { name <- files[[i]]; body <- '' }
     else body <- files[[i]]
 
-    if (!any(sapply(c('list', 'NULL', 'character'), is, object = body))) {
+    if (!any(sapply(c('list', 'NULL', 'character'), methods::is, object = body))) {
       stop("Only NULL, character, or list values are allowed in the nested list.")
     }
 
