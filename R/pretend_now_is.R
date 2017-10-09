@@ -79,7 +79,6 @@ parse_time.character <- function(time) {
 
 #' Default parse_time; throws error
 #' @param time can be any of \code{POSIXct}, \code{Date}, or \code{character}.
-#' @rdname parse_time
 #' @export 
 parse_time.default <- function(time) {
   stop("Time provided to ", crayon::red("testthatsomemore::pretend_now_is"),
